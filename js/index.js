@@ -1,3 +1,4 @@
+const selectUserNumber = document.querySelector("#users");
 const randomFolks = document.querySelector(".random-peeps");
 
 const getData = async function () {
@@ -8,7 +9,7 @@ const getData = async function () {
     displayUsers(userResults);
 };
 
-getData();
+getData(1);
 
 const displayUsers = function (userResults) {
     randomFolks.innerHTML = "";
@@ -26,3 +27,8 @@ const displayUsers = function (userResults) {
         randomFolks.append(userDiv);
     }
 };
+
+selectUserNumber.addEventListener("change", function (e) {
+    const numUsers = e.target.value;
+    getData(numUsers);
+});
